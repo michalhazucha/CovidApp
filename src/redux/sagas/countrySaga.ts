@@ -2,7 +2,6 @@ import { put, takeEvery, all, fork } from 'redux-saga/effects';
 import axios from 'axios';
 import { fetchDataAction } from '../actions/actionCreators/countryActionCreators';
 import { ActionTypes } from '../actions/types';
-import { Button } from 'react-bootstrap';
 
 function* onRecieveData({ payload }: any) {
   try {
