@@ -1,0 +1,11 @@
+/* make the customizations */
+$theme-colors: (
+  "sucess": #bada55,
+  "danger": #bb0a21,
+  "secondary":#474747,
+  "info":#eec643,
+  "dark":#141414,
+  "light":#fff9fb,
+);
+/* import bootstrap to set changes */
+@import "~bootstrap/scss/bootstrap";
