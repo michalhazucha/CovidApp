@@ -1,26 +1,26 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch, DefaultRootState } from 'react-redux';
-import './App.scss';
 import { AppState } from '../../redux/reducers/rootReducer';
+import Informations from '../Informations';
 import { fetchDataAction, getNameAction, setNameAction } from '../../redux/actions/actionCreators/countryActionCreators';
 import { ICountry } from '../../interfaces';
 import moment from 'moment';
-
+import './App.scss';
 import { Container, Button } from 'react-bootstrap';
 const App = () => {
   const dispatch = useDispatch();
-  const { Country, CountryCode, Province, City, CityCode, Lat, Lon, Cases, Status, Date } = useSelector((state: any) => state.country.country);
+  const { Country, Cases, Status, Date } = useSelector((state: any) => state.country.country);
   const handleFetch = () => dispatch(getNameAction('Slovakia'));
+  useEffect(() => {
+    handleFetch();
+  });
   return (
-    <div className="App bg-dark text-light p-3">
-      <Button onClick={handleFetch} className="btn-primary lg">
-        handleFetch
-      </Button>
-      <Container>
-        {Country ? <h1>Country:{Country}</h1> : ''}
-        {Cases ? <h1>Cases:{Cases}</h1> : ''}
-        {Status ? <h1>Status:{Status}</h1> : ''}
-        {Date ? <h1>Date:{moment(Date).format('DD MMM YYYY')}</h1> : ''}
+    <div className="App bg-dark text-light p-5">
+      <Container className="d-flex .align-items-around justify-content-center h-100">
+        <div>
+          <h1>Covid 19 INFO</h1>
+          <Informations Country={Country} Cases={Status} Status={Status} Date={Date} />
+        </div>
       </Container>
     </div>
   );

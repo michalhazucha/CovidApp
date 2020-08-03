@@ -6,7 +6,7 @@ import { Button } from 'react-bootstrap';
 
 function* onRecieveData({ payload }: any) {
   try {
-    const URL = `https://api.covid19api.com/country/${payload.toLowerCase().replace(/ /g, '-')}/status/confirmed`;
+    const URL = `https://api.covid19api.com/country/${payload.toLowerCase().replace(/ /g, '-')}/status/confirmed/live`;
     const { data } = yield axios.get(URL);
     const last = data.length - 1;
     yield put(fetchDataAction(data[last]));
