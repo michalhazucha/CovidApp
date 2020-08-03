@@ -19,7 +19,7 @@ const App = () => {
       <Container className="d-flex .align-items-around justify-content-center h-100">
         <div>
           <h1>Covid 19 INFO</h1>
-          <Informations Country={Country} Cases={Status} Status={Status} Date={Date} />
+          <Informations Country={Country} Cases={Cases} Status={Status} Date={Date} />
         </div>
       </Container>
     </div>
