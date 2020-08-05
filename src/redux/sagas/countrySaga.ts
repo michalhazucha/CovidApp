@@ -4,6 +4,12 @@ import { fetchDataAction } from '../actions/actionCreators/countryActionCreators
 import { ActionTypes } from '../actions/types';
 
 function* onRecieveData({ payload }: any) {
+  const APIKEY = '11806e16-3d82-491b-9b86-fde03bca4dc9';
+  //  ,{
+  //     headers: {x
+  //       Authorization: APIKEY,
+  //     },
+  //   }
   try {
     const URL = `https://api.covid19api.com/country/${payload.toLowerCase().replace(/ /g, '-')}/status/confirmed/live`;
     const { data } = yield axios.get(URL);
