@@ -1,5 +1,17 @@
 import { ActionTypes } from '../types';
 import { ICountry } from '../../../interfaces';
+
+export const getCountries = () => {
+  return {
+    type: ActionTypes.getCountries,
+  };
+};
+export const fetchCountriesAction = (data: Array<any>) => {
+  return {
+    type: ActionTypes.fetchCountries,
+    payload: data,
+  };
+};
 export const setNameAction = (e: any) => {
   return { type: ActionTypes.setName, payload: e };
 };

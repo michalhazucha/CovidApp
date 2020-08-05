@@ -1,11 +1,14 @@
 import { ActionTypes } from '../actions/types';
 const initialState: any = {
+  countries: [],
   name: '',
   country: [],
 };
 
 const countryReducer = (state = initialState, action: any) => {
   switch (action.type) {
+    case ActionTypes.fetchCountries:
+      return { ...state, countries: action.payload };
     case ActionTypes.setName:
       return {
         ...state,

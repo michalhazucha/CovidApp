@@ -1,9 +1,20 @@
 import { put, takeEvery, all, fork } from 'redux-saga/effects';
 import axios from 'axios';
-import { fetchDataAction } from '../actions/actionCreators/countryActionCreators';
+import { fetchDataAction, fetchCountriesAction } from '../actions/actionCreators/countryActionCreators';
 import { ActionTypes } from '../actions/types';
 
-function* onRecieveData({ payload }: any) {
+function* onRecieveCountries() {
+  try {
+    const URL = `https://api.covid19api.com/countries`;
+    const { data } = yield axios.get(URL);
+    console.log(data);
+    yield put(fetchCountriesAction(data));
+  } catch (e) {
+    yield put({ type: 'COUNTRIES_LOAD_FAILED', message: e.message });
+  }
+}
+
+function* onRecieveCountry({ payload }: any) {
   const APIKEY = '11806e16-3d82-491b-9b86-fde03bca4dc9';
   //  ,{
   //     headers: {x
@@ -19,12 +30,15 @@ function* onRecieveData({ payload }: any) {
     yield put({ type: 'DATA_LOAD_FAILED', message: e.message });
   }
 }
-function* watchOnLoadData() {
-  yield takeEvery(ActionTypes.getName, onRecieveData);
+function* watchOnLoadCountry() {
+  yield takeEvery(ActionTypes.getName, onRecieveCountry);
+}
+function* watchOnLoadCountries() {
+  yield takeEvery(ActionTypes.getCountries, onRecieveCountries);
 }
 
 function* countrySaga() {
-  yield all([fork(watchOnLoadData)]);
+  yield all([fork(watchOnLoadCountries), fork(watchOnLoadCountry)]);
 }
 export default function* rootSaga() {
   yield all([fork(countrySaga)]);
