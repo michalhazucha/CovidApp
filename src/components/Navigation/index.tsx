@@ -17,6 +17,7 @@ const Navigation = () => {
   };
   /** *TODO
    * Sort Countries Alphabetical
+   * FIX dropdown and form search
    * Detailed info fetch
    * Graphs
    */
