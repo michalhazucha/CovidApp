@@ -3,6 +3,7 @@ const initialState: any = {
   countries: [],
   name: '',
   country: [],
+  error: '',
 };
 
 const countryReducer = (state = initialState, action: any) => {
@@ -18,6 +19,8 @@ const countryReducer = (state = initialState, action: any) => {
       return { ...state, name: action.payload };
     case ActionTypes.fetchData:
       return { ...state, country: action.payload };
+    case ActionTypes.errorData:
+      return { ...state, error: action.message };
     default:
       return state;
   }

@@ -1,0 +1,9 @@
+.dropdown-menu-right{
+  padding: 0;
+  max-height: 24rem;
+  overflow-y: scroll;
+ &a.dropdown-item{
+    padding: 0;
+    height: 1rem;
+  }
+}

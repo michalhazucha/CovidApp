@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getCountries, fetchCountriesAction, getNameAction, setNameAction } from '../../redux/actions/actionCreators/countryActionCreators';
 import { Navbar, Nav, Form, FormControl, Button, Dropdown, DropdownButton } from 'react-bootstrap';
+import './Navbar.scss';
+
 const Navigation = () => {
   useEffect(() => {
     dispatch(getCountries());
@@ -16,16 +18,13 @@ const Navigation = () => {
     setNameAction(e);
   };
   /** *TODO
-   * Sort Countries Alphabetical
-   * FIX dropdown and form search
    * Detailed info fetch
    * Graphs
    */
-  console.log(country);
+  countries.sort((a: String | any, b: String | any) => a.Country.localeCompare(b.Country));
   return (
     <Navbar variant="dark" className="bg-primary">
       <Navbar.Brand href="#home">Navbar</Navbar.Brand>
-
       <Form inline>
         <FormControl type="text" placeholder="Search" className="mr-sm-2" onClick={handleSetName} />
         <DropdownButton alignRight title={country ? country : 'Vyber Krajinu'} id="dropdown-menu-align-right">

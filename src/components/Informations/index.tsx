@@ -4,26 +4,42 @@ import { ICountry } from '../../interfaces';
 import InfoCard from '../InfoCard';
 import { Container, Button, Card, Row, Col } from 'react-bootstrap';
 const { Body, Title, Text } = Card;
-const Informations = ({ Country, Cases, Status, Date }: any) => {
+const Informations = (props: any) => {
   return (
     <Container className="m-3 d-flex">
-      {Country && Cases && Status && Date ? (
+      {props.Country || props.Cases || props.Status || props.Date ? (
         <Row>
-          <Col>
-            <InfoCard Heading="Krajina" Content={Country} />
-          </Col>
-          <Col>
-            <InfoCard Heading="Prípadov Doteraz" Content={Cases} />
-          </Col>
-          <Col>
-            <InfoCard Heading="Status" Content={Status} />
-          </Col>
-          <Col>
-            <InfoCard Heading="Aktualizované" Date={Date} />
-          </Col>
+          {props.Country || {} ? (
+            <Col>
+              <InfoCard Heading="Krajina" Content={props.Country} />
+            </Col>
+          ) : (
+            ''
+          )}
+          {props.Cases || {} ? (
+            <Col>
+              <InfoCard Heading="Prípadov Doteraz" Content={props.Cases} />
+            </Col>
+          ) : (
+            ''
+          )}
+          {props.Status || {} ? (
+            <Col>
+              <InfoCard Heading="Status" Content={props.Status} />
+            </Col>
+          ) : (
+            ''
+          )}
+          {props.Date || {} ? (
+            <Col>
+              <InfoCard Heading="Aktualizované" Date={props.Date} />
+            </Col>
+          ) : (
+            ''
+          )}
         </Row>
       ) : (
-        ''
+        <Row>There is an Error Here </Row>
       )}
     </Container>
   );

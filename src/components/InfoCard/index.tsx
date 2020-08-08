@@ -6,7 +6,7 @@ const InfoCard = ({ Heading, Content, Date }: any) => {
   return (
     <Card>
       <Body>
-        <Title className="h3">{Heading}:</Title>
+        <Title className="h3">{Heading}</Title>
         {Date ? <Text className="h2 text-dark">{moment(Date).format('DD MMM YYYY')}</Text> : <Text className="h2 text-dark">{Content}</Text>}
       </Body>
     </Card>

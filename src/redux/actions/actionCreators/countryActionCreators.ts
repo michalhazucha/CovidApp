@@ -27,3 +27,9 @@ export const fetchDataAction = (data: any) => {
     payload: data,
   };
 };
+export const dataErrorAction = () => {
+  return {
+    type: ActionTypes.errorData,
+    message: 'No data about this Country',
+  };
+};
