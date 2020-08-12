@@ -3,13 +3,9 @@ import { useSelector, useDispatch, DefaultRootState } from 'react-redux';
 import { AppState } from '../../redux/reducers/rootReducer';
 import Informations from '../Informations';
 import Navigation from '../Navigation';
-import { fetchDataAction, getNameAction, setNameAction } from '../../redux/actions/actionCreators/countryActionCreators';
-import { ICountry } from '../../interfaces';
-import moment from 'moment';
 import './App.scss';
-import { Container, Button } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 const App = () => {
-  const dispatch = useDispatch();
   const error = useSelector((state: any) => state.country.error);
   const country = useSelector((state: any) => state.country.country);
   const { Country, TotalCases, NewCases, Status, Date } = useSelector((state: any) => state.country.country || {});

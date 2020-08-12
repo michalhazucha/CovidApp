@@ -3,6 +3,7 @@ import axios from 'axios';
 import { fetchDataAction, fetchCountriesAction, dataErrorAction } from '../actions/actionCreators/countryActionCreators';
 import { ActionTypes } from '../actions/types';
 
+const APIKEY = '5756f9c8-90f8-477b-8757-4462aa63f76f';
 function* onRecieveCountries() {
   try {
     const URL = `https://api.covid19api.com/countries`;
@@ -17,10 +18,9 @@ function* onRecieveCountry({ payload }: any) {
     const URL = `https://api.covid19api.com/premium/country/${payload.toLowerCase().replace(/ /g, '-')}`;
     const { data } = yield axios.get(URL, {
       headers: {
-        'X-Access-Token': '5756f9c8-90f8-477b-8757-4462aa63f76f',
+        'X-Access-Token': APIKEY,
       },
     });
-    console.log(data);
     const last = data.length - 1;
     yield put(fetchDataAction(data[last]));
   } catch {
