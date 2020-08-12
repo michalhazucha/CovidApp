@@ -1,12 +1,24 @@
 export interface ICountry {
-  Country?: String;
-  CountryCode?: String;
-  Province?: String;
-  City?: String;
-  CityCode?: String;
-  Lat?: String;
-  Lon?: String;
-  Cases?: Number;
-  Status?: String;
-  Date?: String | any;
+  CountryISO: String;
+  Country: String;
+  Continent: String;
+  Date: String;
+  TotalCases: Number;
+  NewCases: Number;
+  TotalDeaths: Number;
+  NewDeaths: Number;
+  TotalCasesPerMillion: Number;
+  NewCasesPerMillion: Number;
+  TotalDeathsPerMillion: Number;
+  NewDeathsPerMillion: Number;
+  StringencyIndex: Number;
+  DailyIncidenceConfirmedCases: Number;
+  DailyIncidenceConfirmedDeaths: Number;
+  DailyIncidenceConfirmedCasesPerMillion: Number;
+  DailyIncidenceConfirmedDeathsPerMillion: Number;
+  IncidenceRiskConfirmedPerHundredThousand: Number;
+  IncidenceRiskDeathsPerHundredThousand: Number;
+  IncidenceRiskNewConfirmedPerHundredThousand: Number;
+  IncidenceRiskNewDeathsPerHundredThousand: Number;
+  CaseFatalityRatio: Number;
 }

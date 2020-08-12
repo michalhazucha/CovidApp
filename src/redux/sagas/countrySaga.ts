@@ -12,12 +12,15 @@ function* onRecieveCountries() {
     yield put({ type: 'COUNTRIES_LOAD_FAILED', message: e.message });
   }
 }
-
 function* onRecieveCountry({ payload }: any) {
   try {
-    const URL = `https://api.covid19api.com/country/${payload.toLowerCase().replace(/ /g, '-')}/status/confirmed/live`;
-    console.log(payload.toLowerCase().replace(/ /g, '-'));
-    const { data } = yield axios.get(URL);
+    const URL = `https://api.covid19api.com/premium/country/${payload.toLowerCase().replace(/ /g, '-')}`;
+    const { data } = yield axios.get(URL, {
+      headers: {
+        'X-Access-Token': '5756f9c8-90f8-477b-8757-4462aa63f76f',
+      },
+    });
+    console.log(data);
     const last = data.length - 1;
     yield put(fetchDataAction(data[last]));
   } catch {

@@ -4,10 +4,10 @@ import { ICountry } from '../../interfaces';
 import InfoCard from '../InfoCard';
 import { Container, Button, Card, Row, Col } from 'react-bootstrap';
 const { Body, Title, Text } = Card;
-const Informations = (props: any) => {
+const Informations = (props: ICountry | any) => {
   return (
     <Container className="m-3 d-flex">
-      {props.Country || props.Cases || props.Status || props.Date ? (
+      {props.Country || props.TotalCases || props.Status || props.Date ? (
         <Row>
           {props.Country || {} ? (
             <Col>
@@ -16,16 +16,16 @@ const Informations = (props: any) => {
           ) : (
             ''
           )}
-          {props.Cases || {} ? (
+          {props.TotalCases || {} ? (
             <Col>
-              <InfoCard Heading="Prípadov Doteraz" Content={props.Cases} />
+              <InfoCard Heading="Prípadov Doteraz" Content={props.TotalCases} />
             </Col>
           ) : (
-            ''
+            'Hello'
           )}
-          {props.Status || {} ? (
+          {props.NewCases || {} ? (
             <Col>
-              <InfoCard Heading="Status" Content={props.Status} />
+              <InfoCard Heading="Nových Prípadov" Content={props.NewCases} />
             </Col>
           ) : (
             ''
