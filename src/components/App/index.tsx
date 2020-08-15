@@ -10,14 +10,9 @@ const App = () => {
   const country = useSelector((state: any) => state.country.country);
   const { Country, TotalCases, NewCases, Status, Date } = useSelector((state: any) => state.country.country || {});
   return (
-    <div className="App p-5">
-      <Container className="d-flex .align-items-around justify-content-center h-100">
-        <div>
-          <h1>Covid 19 INFO</h1>
-          <Navigation />
-          {error !== '' ? <Informations Error={Error} /> : error === '' && country === [] ? 'Vyberte krajinu' : <Informations Country={Country} TotalCases={TotalCases} NewCases={NewCases} Status={Status} Date={Date} Error={Error} />}
-        </div>
-      </Container>
+    <div className="App">
+      <Navigation />
+      <Container> {error !== '' ? <Informations Error={Error} /> : error === '' && country === [] ? 'Vyberte krajinu' : <Informations Country={Country} TotalCases={TotalCases} NewCases={NewCases} Status={Status} Date={Date} Error={Error} />}</Container>
     </div>
   );
 };
