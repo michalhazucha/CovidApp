@@ -22,7 +22,7 @@ function* onRecieveCountry({ payload }: any) {
       },
     });
     const last = data.length - 1;
-    yield put(fetchDataAction(data[last]));
+    yield put(fetchDataAction(data));
   } catch {
     yield put(dataErrorAction());
   }

@@ -42,7 +42,7 @@ const Navigation = () => {
               setSearch(e.target.value);
             }}
           />
-          <DropdownButton alignRight title={name ? name : 'Vyber Krajinu'} id="dropdown-menu-align-right">
+          <DropdownButton alignRight title={country ? country : 'Vyber Krajinu'} id="dropdown-menu-align-right">
             {filteredCountries.map((c: any) => (
               <Dropdown.Item
                 eventKey={c.Slug}
