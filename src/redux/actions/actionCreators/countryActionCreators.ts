@@ -12,16 +12,16 @@ export const fetchCountriesAction = (data: Array<any>) => {
     payload: data,
   };
 };
-export const setNameAction = (e: any) => {
+export const setNameAction = (e: MouseEvent) => {
   return { type: ActionTypes.setName, payload: e };
 };
-export const getNameAction = (name: any) => {
+export const getNameAction = (name: String) => {
   return {
     type: ActionTypes.getName,
     payload: name,
   };
 };
-export const fetchDataAction = (data: any) => {
+export const fetchDataAction = (data: ICountry) => {
   return {
     type: ActionTypes.fetchData,
     payload: data,

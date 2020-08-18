@@ -5,14 +5,16 @@ import Informations from '../Informations';
 import Navigation from '../Navigation';
 import './App.scss';
 import { Container } from 'react-bootstrap';
+import { IState } from '../../interfaces';
 const App = () => {
-  const error = useSelector((state: any) => state.country.error);
-  const country = useSelector((state: any) => state.country.country);
+  const { error } = useSelector((state: IState) => state.country);
+  const { country } = useSelector((state: IState) => state.country);
   const liveData = country.length - 1;
   const dayBefore = country.length - 2;
   const countryData = country[liveData];
   const yesterday = country[dayBefore];
   const newCases = country.map((c: any) => c.NewCases);
+  const division = newCases[dayBefore] - newCases[liveData];
   if (newCases[liveData] > newCases[dayBefore]) {
     console.log('more');
   } else {
@@ -22,7 +24,7 @@ const App = () => {
   return (
     <div className="App">
       <Navigation />
-      <Container> {error !== '' ? <Informations Error={Error} /> : error === '' && country === [] ? 'Vyberte krajinu' : <Informations Country={Country} TotalCases={TotalCases} NewCases={NewCases} Status={Status} Date={Date} Error={Error} />}</Container>
+      <Container> {error !== '' ? <Informations Error={Error} /> : error === '' && country === [] ? 'Vyberte krajinu' : <Informations Country={Country} TotalCases={TotalCases} NewCases={NewCases} Division={division} Status={Status} Date={Date} Error={Error} />}</Container>
     </div>
   );
 };

@@ -7,7 +7,7 @@ const { Body, Title, Text } = Card;
 const Informations = (props: ICountry | any) => {
   return (
     <Container className="m-3 d-flex">
-      {props.Country || props.TotalCases || props.Status || props.Date ? (
+      {props.Country || props.TotalCases || props.NewCases || props.Division || props.Status || props.Date ? (
         <Row>
           {props.Country || {} ? (
             <Col>
@@ -23,9 +23,9 @@ const Informations = (props: ICountry | any) => {
           ) : (
             'Hello'
           )}
-          {props.NewCases || {} ? (
+          {props.NewCases || props.Division || {} ? (
             <Col>
-              <InfoCard Heading="Nových Prípadov" Content={props.NewCases} />
+              <InfoCard Heading="Nových Prípadov" Content={props.NewCases} AlternativeData={props.Division} />
             </Col>
           ) : (
             ''

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { IState } from '../../interfaces';
 import { getCountries, getNameAction, setNameAction } from '../../redux/actions/actionCreators/countryActionCreators';
 import { Navbar, Form, FormControl, Button, Dropdown, DropdownButton } from 'react-bootstrap';
 import './Navbar.scss';
@@ -8,14 +9,13 @@ const Navigation = () => {
   useEffect(() => {
     dispatch(getCountries());
   }, []);
-  const countries = useSelector((state: any) => state.country.countries);
-  const name = useSelector((state: any) => state.country.name);
+  const { countries } = useSelector((state: IState) => state.country);
   const countriesArray = countries.sort((a: String | any, b: String | any) => a.Country.localeCompare(b.Country));
   const [country, setCountry] = useState('');
   const [search, setSearch] = useState('');
   const [filteredCountries, setFilteredCountries] = useState([]);
   useEffect(() => {
-    setFilteredCountries(countries.filter((c: any) => c.Slug.includes(search.toLowerCase())));
+    setFilteredCountries(countriesArray.filter((c: any) => c.Slug.includes(search.toLowerCase())));
   }, [search, countries]);
 
   const dispatch = useDispatch();
@@ -31,7 +31,6 @@ const Navigation = () => {
         COVID 19 World Informations
       </Navbar.Brand>
       <div className="w-100 d-flex justify-content-center px-5">
-        {' '}
         <Form inline className="justify-content-between">
           <FormControl
             type="text"

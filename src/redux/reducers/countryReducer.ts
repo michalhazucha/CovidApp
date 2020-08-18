@@ -1,5 +1,6 @@
+import { IState } from '../../interfaces';
 import { ActionTypes } from '../actions/types';
-const initialState: any = {
+const initialState: IState = {
   countries: [],
   name: '',
   country: [],

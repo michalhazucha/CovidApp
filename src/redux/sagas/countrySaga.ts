@@ -13,7 +13,7 @@ function* onRecieveCountries() {
     yield put({ type: 'COUNTRIES_LOAD_FAILED', message: e.message });
   }
 }
-function* onRecieveCountry({ payload }: any) {
+function* onRecieveCountry({ payload }: String | any) {
   try {
     const URL = `https://api.covid19api.com/premium/country/${payload.toLowerCase().replace(/ /g, '-')}`;
     const { data } = yield axios.get(URL, {
@@ -21,7 +21,6 @@ function* onRecieveCountry({ payload }: any) {
         'X-Access-Token': APIKEY,
       },
     });
-    const last = data.length - 1;
     yield put(fetchDataAction(data));
   } catch {
     yield put(dataErrorAction());

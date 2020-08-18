@@ -1,3 +1,9 @@
+export interface IState {
+  countries: ICountry[];
+  name: String;
+  country: ICountry | any;
+  error: String;
+}
 export interface ICountry {
   CountryISO: String;
   Country: String;
