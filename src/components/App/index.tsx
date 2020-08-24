@@ -1,8 +1,8 @@
 import React from 'react';
-import { useSelector, useDispatch, DefaultRootState } from 'react-redux';
-import { AppState } from '../../redux/reducers/rootReducer';
+import { useSelector } from 'react-redux';
 import Informations from '../Informations';
 import Navigation from '../Navigation';
+import Graph from '../Graph';
 import './App.scss';
 import { Container } from 'react-bootstrap';
 import { IState } from '../../interfaces';
@@ -24,7 +24,11 @@ const App = () => {
   return (
     <div className="App">
       <Navigation />
-      <Container> {error !== '' ? <Informations Error={Error} /> : error === '' && country === [] ? 'Vyberte krajinu' : <Informations Country={Country} TotalCases={TotalCases} NewCases={NewCases} Division={division} Status={Status} Date={Date} Error={Error} />}</Container>
+      <Container>
+        {' '}
+        {error !== '' ? <Informations Error={Error} /> : error === '' && country === [] ? 'Vyberte krajinu' : <Informations Country={Country} TotalCases={TotalCases} NewCases={NewCases} Division={division} Status={Status} Date={Date} Error={Error} />}
+        <Graph />
+      </Container>
     </div>
   );
 };
