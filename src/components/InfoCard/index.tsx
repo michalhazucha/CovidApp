@@ -13,11 +13,11 @@ const InfoCard = ({ Heading, Content, Date, AlternativeData }: any) => {
         {AlternativeData ? (
           AlternativeData! < 0 ? (
             <h4 className="text-danger">
-              <FontAwesomeIcon icon={faLongArrowAltDown} /> {AlternativeData}
+              <FontAwesomeIcon icon={faLongArrowAltUp} /> {AlternativeData}
             </h4>
           ) : (
             <h4 className="text-success">
-              <FontAwesomeIcon icon={faLongArrowAltUp} /> {AlternativeData}
+              <FontAwesomeIcon icon={faLongArrowAltDown} /> {AlternativeData}
             </h4>
           )
         ) : (
