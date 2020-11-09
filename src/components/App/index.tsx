@@ -9,6 +9,7 @@ import { IState } from '../../interfaces';
 const App = () => {
   const { error } = useSelector((state: IState) => state.country);
   const { country } = useSelector((state: IState) => state.country);
+  /*math logic*/
   const liveData = country.length - 1;
   const dayBefore = country.length - 2;
   const countryData = country[liveData];
@@ -25,8 +26,8 @@ const App = () => {
     <div className="App">
       <Navigation />
       <Container>
-        {' '}
         {error !== '' ? <Informations Error={Error} /> : error === '' && country === [] ? 'Vyberte krajinu' : <Informations Country={Country} TotalCases={TotalCases} NewCases={NewCases} Division={division} Status={Status} Date={Date} Error={Error} />}
+        <Graph />
         <Graph />
       </Container>
     </div>
