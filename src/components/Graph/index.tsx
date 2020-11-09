@@ -9,7 +9,6 @@ const Graph = () => {
   const { country } = useSelector((state: IState) => state.country);
   const lastWeek = country.slice(country.length - 7, country.length);
   const lastMonth = country.slice(country.length - 31, country.length);
-  const lastMonth = country.slice(country.length - 31, country.length);
   const lastYear = country.slice(country.length - 365, country.length);
   //const lastWeekDate = country.slice(country.length - 7, country.length);
   const weekBefore = country.slice(country.length - 14, country.length - 7);
