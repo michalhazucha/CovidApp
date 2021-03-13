@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { IState } from '../../interfaces';
 import { getCountries, getNameAction, setNameAction } from '../../redux/actions/actionCreators/countryActionCreators';
-import { Navbar, Form, FormControl, Button, Dropdown, DropdownButton } from 'react-bootstrap';
+import { Container, Navbar, Form, FormControl, Button, Dropdown, DropdownButton, Row, Col } from 'react-bootstrap';
 import './Navbar.scss';
 
 const Navigation = () => {
@@ -26,22 +26,23 @@ const Navigation = () => {
     setNameAction(e);
   };
   return (
-    <Navbar variant="dark" className="bg-primary d-flex">
-      <Navbar.Brand href="#home" className="d-flex">
-        COVID 19 World Informations
-      </Navbar.Brand>
-      <div className="w-100 d-flex justify-content-center px-5">
-        <Form inline className="justify-content-between">
+    <Navbar variant="dark" expand="lg" className="bg-primary d-flex justify-content-between navbar">
+      {' '}
+      <Container>
+        <Navbar.Brand href="#home" className="p-2">
+          COVID 19 World Informations
+        </Navbar.Brand>
+        <Form inline className=" p-2 justify-content-between">
           <FormControl
             type="text"
-            placeholder="Search"
-            className="mr-sm-2"
+            placeholder="Zadajte Meno Krajiny"
+            className=" mx-3 searchbar"
             onClick={handleSetName}
             onChange={(e) => {
               setSearch(e.target.value);
             }}
           />
-          <DropdownButton alignRight title={country ? country : 'Vyber Krajinu'} id="dropdown-menu-align-right">
+          <DropdownButton alignRight title={country ? country : 'Vyber Krajinu'} id="dropdown-menu-align-right" className="mx-3">
             {filteredCountries.map((c: any) => (
               <Dropdown.Item
                 eventKey={c.Slug}
@@ -58,7 +59,7 @@ const Navigation = () => {
             Search
           </Button>
         </Form>
-      </div>
+      </Container>
     </Navbar>
   );
 };

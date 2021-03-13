@@ -1,4 +1,10 @@
-.dropdown-menu-right{
+.navbar{
+  .btn:not(:disabled):not(.disabled) {
+    cursor: pointer;
+    border-radius: 2em;
+}
+  .dropdown-menu-right{
+  left:0;
   padding: 0;
   max-height: 24rem;
   overflow-y: scroll;
@@ -6,4 +12,29 @@
     padding: 0;
     height: 1rem;
   }
+}
+.form-control{
+  color:#fff;
+  &:focus {
+    color: #fff;
+    border-color: #fff;
+    outline: 0;
+    box-shadow: none
+}
+}
+.searchbar{
+  background-color: #42b983;
+    color: #fff;
+  &:focus{
+    background-color: #42b983;
+    color:  #c7c7c7;
+  }
+&::-webkit-input-placeholder{
+  color: #fff;
+}
+@media only screen and (max-width: 600px) {
+    margin-bottom:1em;
+  }
+}
+  
 }
