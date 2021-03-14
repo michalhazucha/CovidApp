@@ -1,6 +1,6 @@
 import { put, takeEvery, all, fork } from 'redux-saga/effects';
 import axios from 'axios';
-import { fetchDataAction, fetchCountriesAction, dataErrorAction } from '../actions/actionCreators/countryActionCreators';
+import { fetchDataAction, fetchCountriesAction, dataErrorAction, FetchErrorAction } from '../actions/actionCreators/countryActionCreators';
 import { ActionTypes } from '../actions/types';
 
 const APIKEY = '5756f9c8-90f8-477b-8757-4462aa63f76f';
@@ -10,7 +10,7 @@ function* onRecieveCountries() {
     const { data } = yield axios.get(URL);
     yield put(fetchCountriesAction(data));
   } catch (e) {
-    yield put({ type: 'COUNTRIES_LOAD_FAILED', message: e.message });
+    yield put(FetchErrorAction());
   }
 }
 function* onRecieveCountry({ payload }: String | any) {

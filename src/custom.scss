@@ -1,11 +1,14 @@
 /* make the customizations */
 $theme-colors: (
-  "primary": #0794a7,
-  "sucess": #bada55,
-  "danger": #bb0a21,
+  "primary": #42b983 ,
+  "sucess": #42b983 ,
+  "danger": #ff4e7a,
   "secondary":#474747,
   "info":#eec643,
   "dark":#141414,
   "light":#fff9fb,
 );
+body{
+  font-family:"Helvetica-Neue",sans-serif;
+}
 @import "~bootstrap/scss/bootstrap";

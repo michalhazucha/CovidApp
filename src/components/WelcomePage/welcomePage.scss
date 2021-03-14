@@ -1,0 +1,38 @@
+.icon{
+  width: 100px;
+  height: auto;
+}
+
+.hero-cover{
+  &__title{
+    font-size: 60px;
+    font-weight: 700;
+    line-height: 60px;
+    max-width: 615px;
+    margin-bottom: 25px;
+    @media only screen and (max-width: 600px){
+      font-size: 30px;
+      font-weight: 700;
+      line-height: 35px;
+      margin-bottom: 15px;
+    }
+  }
+  &__logo{
+    max-width: 100px;
+     @media only screen and (max-width: 600px){
+        max-width: 70px;
+    }
+  }
+  &__text{
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 36px;
+    max-width: 615px;
+    @media only screen and (max-width: 600px){
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 15px;
+      margin-bottom: 10px;
+    }
+  }
+}
