@@ -1,14 +1,13 @@
 import React, { Fragment } from 'react';
 import { useSelector } from 'react-redux';
-import InfoCard from '../InfoCard';
 import Informations from '../Informations';
 import Navigation from '../Navigation';
 import WelcomePage from '../WelcomePage';
+import Footer from '../Footer';
 import Graph from '../Graph';
 import './App.scss';
 import { Container } from 'react-bootstrap';
 import { IState } from '../../interfaces';
-import { getCountries } from '../../redux/actions/actionCreators/countryActionCreators';
 const App = () => {
   const { error } = useSelector((state: IState) => state.country);
   const { country } = useSelector((state: IState) => state.country);
@@ -18,14 +17,13 @@ const App = () => {
   const liveData = country.length - 1;
   const dayBefore = country.length - 2;
   const countryData = country[liveData];
-  const yesterday = country[dayBefore];
   const newCases = country.map((c: any) => c.NewCases);
   const division = newCases[dayBefore] - newCases[liveData];
 
   const { Country, TotalCases, NewCases, Status, Date } = useSelector((state: any) => countryData || {});
   console.log(`country:${country.length}\nname:${name}`);
   return (
-    <div className="App">
+    <div className="App h100">
       <Navigation />
       <Container>
         {country.length === 0 && name !== '' ? (
@@ -41,6 +39,7 @@ const App = () => {
           <WelcomePage />
         )}
       </Container>
+      <Footer />
     </div>
   );
 };

@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLongArrowAltUp, faLongArrowAltDown } from '@fortawesome/free-solid-svg-icons';
-import { Container, Button, Card, Row, Col } from 'react-bootstrap';
-import moment, { MomentInput } from 'moment';
+import { Card } from 'react-bootstrap';
+import moment from 'moment';
 const { Body, Title, Text } = Card;
 const InfoCard = ({ Heading, Content, Date, AlternativeData }: any) => {
   return (

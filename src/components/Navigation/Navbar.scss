@@ -1,4 +1,9 @@
 .navbar{
+      &__logo{
+      max-width: 40px;
+    height: auto;
+    }
+    width: 101%;
   .btn:not(:disabled):not(.disabled) {
     cursor: pointer;
     border-radius: 2em;

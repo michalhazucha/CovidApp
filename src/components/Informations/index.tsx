@@ -2,13 +2,12 @@ import React from 'react';
 import './Informations.scss';
 import { ICountry } from '../../interfaces';
 import InfoCard from '../InfoCard';
-import { Container, Button, Card, Row, Col } from 'react-bootstrap';
-const { Body, Title, Text } = Card;
+import { Container, Row, Col } from 'react-bootstrap';
 const Informations = (props: ICountry | any) => {
   return (
     <Container className="m-3 d-flex">
       {props.Country || props.TotalCases || props.NewCases || props.Division || props.Status || props.Date ? (
-        <Row>
+        <Row className="w-100">
           {props.Country ? (
             <Col>
               <InfoCard Heading="Krajina" Content={props.Country} />
