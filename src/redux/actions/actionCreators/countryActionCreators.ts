@@ -12,6 +12,9 @@ export const fetchCountriesAction = (data: Array<any>) => {
     payload: data,
   };
 };
+export const FetchErrorAction = () => {
+  return { type: ActionTypes.fetchError, message: 'Countries fetch failed' };
+};
 export const setNameAction = (e: MouseEvent) => {
   return { type: ActionTypes.setName, payload: e };
 };

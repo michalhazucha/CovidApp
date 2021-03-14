@@ -11,6 +11,8 @@ const countryReducer = (state = initialState, action: any) => {
   switch (action.type) {
     case ActionTypes.fetchCountries:
       return { ...state, countries: action.payload };
+    case ActionTypes.fetchError:
+      return { ...state, error: action.message };
     case ActionTypes.setName:
       return {
         ...state,
