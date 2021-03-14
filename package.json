@@ -2,7 +2,7 @@
   "name": "covid_api",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://michalhazucha.github.io/covid19WI",
+  "homepage": "https://michalhazucha.github.io/CovidApp/",
   "dependencies": {
     "@babel/register": "^7.10.5",
     "@fortawesome/fontawesome-svg-core": "^1.2.30",
